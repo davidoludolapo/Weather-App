@@ -25,6 +25,9 @@ function App() {
      <input type="text" value={location} placeholder="Enter Location" onKeyDown={searchLocation} onChange={event => setLocation(event.target.value)}  />
    </div>
       <div className="container">
+
+      {data.name !== undefined &&
+      
         <div className="top">
           <div className="location">
             <p>{data.name}</p>
@@ -38,23 +41,24 @@ function App() {
           
           </div>
         </div>
+      }
 
 
-    {data.name != undefined && 
+    {data.name !== undefined && 
     
         <div className="bottom">
           <div className="feels">
+            <p>Feels like</p>
           {data.main ? <p>{data.main.feels_like.toFixed()} °F</p> : null}
             
-            <p>Feels like</p>
           </div>
           <div className="humidity">
-          {data.main ? <p className="bold">{data.main.humidity} %</p> : null}
             <p>Humidity</p>
+          {data.main ? <p className="bold">{data.main.humidity} %</p> : null}
           </div>
           <div className="wind">
-          {data.wind ? <p className="bold">{data.wind.speed.toFixed()} MPH</p> : null}
             <p>Wind Speed</p>
+          {data.wind ? <p className="bold">{data.wind.speed.toFixed()} MPH</p> : null}
           </div>
         </div>
     
